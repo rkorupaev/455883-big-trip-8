@@ -1,7 +1,7 @@
-# Личный проект «Большое путешествие» [![Build status][travis-image]][travis-url]
+﻿# Личный проект «Большое путешествие» [![Build status][travis-image]][travis-url]
 
 * Студент: [Роман Корупаев](https://up.htmlacademy.ru/ecmascript/8/user/455883).
-* Наставник: `Неизвестно`.
+* Наставник: [Артем Черкасов].
 
 ---
 
