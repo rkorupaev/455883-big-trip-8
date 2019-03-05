@@ -14,5 +14,11 @@ module.exports = {
     publicPath: 'http:!/localhost:8080/',
     compress: true,
     hot: true
+  },
+  module: {
+  rules: [{
+  test: /\.js$/,
+  use: `babel-loader`
+    }]
   }
 };
