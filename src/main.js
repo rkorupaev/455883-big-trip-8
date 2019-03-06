@@ -3,7 +3,7 @@ import makeFilter from './make-filter.js';
 
 const filterContainer = document.querySelector(`.trip-filter`);
 const filters = [`everything`, `future`, `past`];
-filters.forEach(function(element) {
+filters.forEach((element) => {
   filterContainer.insertAdjacentHTML(`beforeend`, makeFilter(element));
 });
 
@@ -13,3 +13,13 @@ for (let i = 0; i < 7; i++) {
 };
 
 
+
+filterContainer.addEventListener(`click`, (evt) => {
+  let tripPoints = document.querySelectorAll(`.trip-point`);
+  tripPoints.forEach((element) => {
+    element.remove();
+  });
+  for (let i = 0; i < (Math.random() * 5); i++){
+    dayItems.insertAdjacentHTML(`beforeend`, makePoint());
+  };
+});
