@@ -10,7 +10,7 @@ filters.forEach((element) => {
 
 const dayItems = document.querySelector(`.trip-day__items`);
 for (let i = 0; i < 7; i++) {
-  dayItems.insertAdjacentHTML(`beforeend`, makePoint());
+  dayItems.insertAdjacentHTML(`beforeend`, makePoint(data));
 };
 
 
@@ -24,6 +24,3 @@ filterContainer.addEventListener(`click`, (evt) => {
     dayItems.insertAdjacentHTML(`beforeend`, makePoint());
   };
 });
-
-
-console.log(data);
