@@ -1,6 +1,6 @@
 import makePoint from './make-point.js';
 import makeFilter from './make-filter.js';
-import data from './point.js';
+import {point as data} from './point.js';
 
 const filterContainer = document.querySelector(`.trip-filter`);
 const filters = [`everything`, `future`, `past`];
