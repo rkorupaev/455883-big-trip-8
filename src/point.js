@@ -4,8 +4,9 @@ const makeArrayOfTitles = () => {
   let arrayOfTitles = initialString.split(`. `);
   arrayOfTitles.slice(0, -1);
   for (let i = 0; i < getRandomNumber(1, 3); i++) {
-    finalTitle = finalTitle + arrayOfTitles[getRandomNumber(0, 11)];
+    finalTitle.push(arrayOfTitles[getRandomNumber(0, 11)]);
   }
+  finalTitle.join();
   return finalTitle;
 };
 
