@@ -29,6 +29,8 @@ getOfferList().forEach((element) => {
 });
 
 export const point = {
+  town: `Moscow`,
+  photo: `http://picsum.photos/300/150?r=${Math.random()}`,
   icon: `taxi`,
   title: makeArrayOfTitles(),
   time: {
