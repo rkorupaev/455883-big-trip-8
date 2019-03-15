@@ -13,6 +13,21 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
+const getOfferList = () => {
+  const initialOffers = [`Add luggage`, `Switch to comfort class`, `Add meal`, `Choose seats`];
+  let finalOffers = [];
+    for (let i = 0; i < getRandomNumber(0, 3); i++) {
+    finalOffers.push(initialOffers[i]);
+  };
+  return finalOffers;
+};
+
+let offersString = ``;
+
+getOfferList().forEach((element) => {
+  offersString = offersString + `<li><button class="trip-point__offer">${element}</button></li>`;
+});
+
 export const point = {
   icon: `taxi`,
   title: makeArrayOfTitles(),
@@ -21,6 +36,6 @@ export const point = {
     duration: `1H30`,
   },
   price: `20`,
-  offer: new Set([`Add luggage`, `Switch to comfort class`, `Add meal`, `Choose seats`]),
+  offer: offersString,
 };
 

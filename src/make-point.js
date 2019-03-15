@@ -7,11 +7,6 @@ export default (data) => `<article class="trip-point">
           </p>
           <p class="trip-point__price">${data.price}</p>
           <ul class="trip-point__offers">
-            <li>
-              <button class="trip-point__offer">Order UBER +&euro;&nbsp;20</button>
-            </li>
-            <li>
-              <button class="trip-point__offer">Upgrade to business +&euro;&nbsp;20</button>
-            </li>
+            ${data.offer}
           </ul>
         </article>`;
