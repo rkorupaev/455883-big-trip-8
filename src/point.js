@@ -4,8 +4,8 @@ const makeArrayOfTitles = () => {
   let arrayOfTitles = initialString.split(`. `);
   arrayOfTitles.slice(0, -1);
   for (let i = 0; i < getRandomNumber(1, 3); i++) {
-    finalTitle = finalTitle + arrayOfTitles[getRandomNumber(0, 11)]
-  };
+    finalTitle = finalTitle + arrayOfTitles[getRandomNumber(0, 11)];
+  }
   return finalTitle;
 };
 
@@ -16,9 +16,9 @@ const getRandomNumber = (min, max) => {
 const getOfferList = () => {
   const initialOffers = [`Add luggage`, `Switch to comfort class`, `Add meal`, `Choose seats`];
   let finalOffers = [];
-    for (let i = 0; i < getRandomNumber(0, 3); i++) {
+  for (let i = 0; i < getRandomNumber(0, 3); i++) {
     finalOffers.push(initialOffers[i]);
-  };
+  }
   return finalOffers;
 };
 
