@@ -1,6 +1,5 @@
-import makePoint from './make-point.js';
 import makeFilter from './make-filter.js';
-import {point as data} from './point.js';
+import {routePoints} from './route.js';
 
 const filterContainer = document.querySelector(`.trip-filter`);
 const filters = [`everything`, `future`, `past`];
@@ -10,7 +9,7 @@ filters.forEach((element) => {
 
 const dayItems = document.querySelector(`.trip-day__items`);
 for (let i = 0; i < 7; i++) {
-  dayItems.insertAdjacentHTML(`beforeend`, makePoint(data));
+  dayItems.insertAdjacentHTML(`beforeend`, routePoints[i]);
 };
 
 
