@@ -7,9 +7,11 @@ class Point = {
     this._time: data.time;
     this._price: data.price;
     this._offer: data.offer;
+
+    this._element: null;
   }
 
-  get template() = {
+  get template() {
     return `
         <article class="trip-point">
           <i class="trip-icon">🚕</i>
@@ -22,7 +24,17 @@ class Point = {
           <ul class="trip-point__offers">
             ${this._offer}
           </ul>
-        </article>`.trim()
-      }
+        </article>`.trim();
+    }
+
+  createElement (template) {
+    const newElement = document.createElement(`article`);
+    newElement.innerHTML = template;
+    return newElement;
+  }
+
+  render(container) {
+    this._element = createElement(this.template);
+  }
 
 };
