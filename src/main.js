@@ -20,6 +20,17 @@ firstItem.setOnClick = dayItems.querySelector(`.trip-point`).addEventListener(`c
   openedItem.render(dayItems);
 });
 
+openedItem.setOnSubmit = dayItems.addEventListener(`submit`, (evt) =>{
+  evt.preventDefault();
+  evt.target.parentNode.remove();
+  firstItem.render(dayItems);
+});
+
+openedItem.setOnReset = dayItems.addEventListener(`reset`, (evt) =>{
+  evt.preventDefault();
+  evt.target.parentNode.remove();
+  firstItem.render(dayItems);
+});
 
 filterContainer.addEventListener(`click`, () => {
   let tripPoints = document.querySelectorAll(`.trip-point`);

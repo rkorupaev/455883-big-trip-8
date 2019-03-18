@@ -126,6 +126,21 @@ export class PointOpened {
     </article>`.trim();
   }
 
+
+  set setOnSubmit(someFunction) {
+    this.onSubmit = someFunction;
+  }
+
+  set setOnReset(someFunction) {
+    this.OnReset = someFunction;
+  }
+
+  onSubmit () {
+  }
+
+  onReset () {
+  }
+
   createElement(template) {
     const newElement = document.createElement(`article`);
     newElement.innerHTML = template;
