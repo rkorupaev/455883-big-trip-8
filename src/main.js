@@ -21,14 +21,13 @@ firstItem.onClick = (evt) => {
 
 firstItem.render(dayItems);
 
-
-openedItem.setOnSubmit = (evt) =>{
+openedItem.onSubmit = (evt) =>{
   evt.preventDefault();
   evt.target.parentNode.remove();
   firstItem.render(dayItems);
 };
 
-openedItem.setOnReset = (evt) =>{
+openedItem.onReset = (evt) =>{
   evt.preventDefault();
   evt.target.parentNode.remove();
   firstItem.render(dayItems);

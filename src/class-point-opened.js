@@ -126,11 +126,11 @@ export class PointOpened {
     </article>`.trim();
   }
 
-  set setOnSubmit(someFunction) {
+  set onSubmit(someFunction) {
     this.onSubmit = someFunction;
   }
 
-  set setOnReset(someFunction) {
+  set onReset(someFunction) {
     this.onReset = someFunction;
   }
 

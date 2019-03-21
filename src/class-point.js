@@ -27,12 +27,11 @@ export class Point {
         </article>`.trim();
   }
 
-  onClick() {
-  }
-
-  set setOnClick (someFunction) {
+  set onClick(someFunction) {
     this.onClick = someFunction;
   }
+
+  onClick() {}
 
   createElement(template) {
     const newElement = document.createElement(`article`);
