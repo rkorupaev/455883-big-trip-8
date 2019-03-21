@@ -13,31 +13,33 @@ filters.forEach((element) => {
 const dayItems = document.querySelector(`.trip-day__items`);
 const firstItem = new Point(point);
 const openedItem = new PointOpened(point);
-firstItem.render(dayItems);
 
-firstItem.setOnClick = dayItems.querySelector(`.trip-point`).addEventListener(`click`,(evt) => {
+firstItem.onClick = (evt) => {
   evt.target.parentNode.remove();
   openedItem.render(dayItems);
-});
+};
 
-openedItem.setOnSubmit = dayItems.addEventListener(`submit`, (evt) =>{
+firstItem.render(dayItems);
+
+
+openedItem.setOnSubmit = (evt) =>{
   evt.preventDefault();
   evt.target.parentNode.remove();
   firstItem.render(dayItems);
-});
+};
 
-openedItem.setOnReset = dayItems.addEventListener(`reset`, (evt) =>{
+openedItem.setOnReset = (evt) =>{
   evt.preventDefault();
   evt.target.parentNode.remove();
   firstItem.render(dayItems);
-});
+};
 
-filterContainer.addEventListener(`click`, () => {
-  let tripPoints = document.querySelectorAll(`.trip-point`);
-  tripPoints.forEach((element) => {
-    element.remove();
-  });
-  for (let i = 0; i < (Math.random() * 5); i++) {
-    dayItems.insertAdjacentHTML(`beforeend`, routePoints[i]);
-  }
-});
+// filterContainer.addEventListener(`click`, () => {
+//   let tripPoints = document.querySelectorAll(`.trip-point`);
+//   tripPoints.forEach((element) => {
+//     element.remove();
+//   });
+//   for (let i = 0; i < (Math.random() * 5); i++) {
+//     dayItems.insertAdjacentHTML(`beforeend`, routePoints[i]);
+//   }
+// });

@@ -126,19 +126,18 @@ export class PointOpened {
     </article>`.trim();
   }
 
-
   set setOnSubmit(someFunction) {
     this.onSubmit = someFunction;
   }
 
   set setOnReset(someFunction) {
-    this.OnReset = someFunction;
+    this.onReset = someFunction;
   }
 
-  onSubmit () {
+  onSubmit() {
   }
 
-  onReset () {
+  onReset() {
   }
 
   createElement(template) {
@@ -150,5 +149,7 @@ export class PointOpened {
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);
+    this._element.addEventListener(`submit`, this.onSubmit);
+    this._element.addEventListener(`reset`, this.onReset);
   }
 };

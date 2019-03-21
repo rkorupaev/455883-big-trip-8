@@ -27,11 +27,11 @@ export class Point {
         </article>`.trim();
   }
 
-  set setOnClick(someFunction) {
-    this.onClick = someFunction;
+  onClick() {
   }
 
-  onCLick () {
+  set setOnClick (someFunction) {
+    this.onClick = someFunction;
   }
 
   createElement(template) {
@@ -43,5 +43,6 @@ export class Point {
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);
+    this._element.addEventListener(`click`, this.onClick);
   }
 };
