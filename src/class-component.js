@@ -1,8 +1,10 @@
-class Component {
+export class Component {
   constructor() {
     if (new.target === Component) {
       throw new Error(`Can't instantiate Component, only concrete one.`);
     }
+
+    this._element = null;
   }
 
   get template() {
@@ -16,6 +18,4 @@ class Component {
   }
 
   render(container) {}
-
-
-}
+};

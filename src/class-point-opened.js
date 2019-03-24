@@ -1,5 +1,8 @@
-export class PointOpened {
+import {Component} from './class-component.js';
+
+export class PointOpened extends Component {
   constructor(data) {
+    super();
     this._town = data.town;
     this._photo = data.photo;
     this._icon = data.icon;
@@ -7,8 +10,6 @@ export class PointOpened {
     this._time = data.time;
     this._price = data.price;
     this._offer = data.offer;
-
-    this._element = null;
   }
 
   get template() {
