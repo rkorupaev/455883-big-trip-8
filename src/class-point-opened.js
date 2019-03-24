@@ -141,12 +141,6 @@ export class PointOpened extends Component {
   _onReset() {
   }
 
-  createElement(template) {
-    const newElement = document.createElement(`article`);
-    newElement.innerHTML = template;
-    return newElement;
-  }
-
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);

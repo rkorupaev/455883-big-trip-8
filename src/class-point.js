@@ -34,12 +34,6 @@ export class Point extends Component {
 
   _onClick() {}
 
-  createElement(template) {
-    const newElement = document.createElement(`article`);
-    newElement.innerHTML = template;
-    return newElement;
-  }
-
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);
