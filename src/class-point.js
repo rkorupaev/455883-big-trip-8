@@ -28,10 +28,10 @@ export class Point {
   }
 
   set onClick(someFunction) {
-    this.onClick = someFunction;
+    this._onClick = someFunction;
   }
 
-  onClick() {}
+  _onClick() {}
 
   createElement(template) {
     const newElement = document.createElement(`article`);
@@ -42,6 +42,6 @@ export class Point {
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);
-    this._element.addEventListener(`click`, this.onClick);
+    this._element.addEventListener(`click`, this._onClick);
   }
 };
