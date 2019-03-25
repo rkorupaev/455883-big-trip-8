@@ -17,5 +17,11 @@ export class Component {
     return newElement;
   }
 
-  render(container) {}
+  bind() {};
+
+  render(container) {
+    this._element = this.createElement(this.template);
+    container.appendChild(this._element);
+    this.bind();
+  }
 };

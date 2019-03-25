@@ -34,9 +34,7 @@ export class Point extends Component {
 
   _onClick() {}
 
-  render(container) {
-    this._element = this.createElement(this.template);
-    container.appendChild(this._element);
+  bind() {
     this._element.addEventListener(`click`, this._onClick);
   }
 };

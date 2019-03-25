@@ -141,9 +141,7 @@ export class PointOpened extends Component {
   _onReset() {
   }
 
-  render(container) {
-    this._element = this.createElement(this.template);
-    container.appendChild(this._element);
+  bind() {
     this._element.addEventListener(`submit`, this._onSubmit);
     this._element.addEventListener(`reset`, this._onReset);
   }
