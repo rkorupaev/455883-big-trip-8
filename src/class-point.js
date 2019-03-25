@@ -1,5 +1,8 @@
-export class Point {
+import {Component} from './class-component.js';
+
+export class Point extends Component {
   constructor(data) {
+    super();
     this._town = data.town;
     this._photo = data.photo;
     this._icon = data.icon;
@@ -7,8 +10,6 @@ export class Point {
     this._time = data.time;
     this._price = data.price;
     this._offer = data.offer;
-
-    this._element = null;
   }
 
   get template() {
@@ -28,20 +29,12 @@ export class Point {
   }
 
   set onClick(someFunction) {
-    this.onClick = someFunction;
+    this._onClick = someFunction;
   }
 
-  onClick() {}
+  _onClick() {}
 
-  createElement(template) {
-    const newElement = document.createElement(`article`);
-    newElement.innerHTML = template;
-    return newElement;
-  }
-
-  render(container) {
-    this._element = this.createElement(this.template);
-    container.appendChild(this._element);
-    this._element.addEventListener(`click`, this.onClick);
+  bind() {
+    this._element.addEventListener(`click`, this._onClick);
   }
 };
