@@ -1,5 +1,8 @@
-export class PointOpened {
+import {Component} from './class-component.js';
+
+export class PointOpened extends Component {
   constructor(data) {
+    super();
     this._town = data.town;
     this._photo = data.photo;
     this._icon = data.icon;
@@ -7,8 +10,6 @@ export class PointOpened {
     this._time = data.time;
     this._price = data.price;
     this._offer = data.offer;
-
-    this._element = null;
   }
 
   get template() {
@@ -127,29 +128,21 @@ export class PointOpened {
   }
 
   set onSubmit(someFunction) {
-    this.onSubmit = someFunction;
+    this._onSubmit = someFunction;
   }
 
   set onReset(someFunction) {
-    this.onReset = someFunction;
+    this._onReset = someFunction;
   }
 
-  onSubmit() {
+  _onSubmit() {
   }
 
-  onReset() {
+  _onReset() {
   }
 
-  createElement(template) {
-    const newElement = document.createElement(`article`);
-    newElement.innerHTML = template;
-    return newElement;
-  }
-
-  render(container) {
-    this._element = this.createElement(this.template);
-    container.appendChild(this._element);
-    this._element.addEventListener(`submit`, this.onSubmit);
-    this._element.addEventListener(`reset`, this.onReset);
+  bind() {
+    this._element.addEventListener(`submit`, this._onSubmit);
+    this._element.addEventListener(`reset`, this._onReset);
   }
 };
