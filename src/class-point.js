@@ -37,4 +37,12 @@ export class Point extends Component {
   bind() {
     this._element.addEventListener(`click`, this._onClick);
   }
+
+  update(data) {
+    this._icon = data.icon;
+    this._title = data.title;
+    this._time = data.time;
+    this._price = data.price;
+    this._offer = data.offer;
+  }
 };

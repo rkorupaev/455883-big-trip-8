@@ -141,6 +141,16 @@ export class PointOpened extends Component {
   _onReset() {
   }
 
+  _onTypeChange() {};
+
+  _onTownChange() {};
+
+  _onDateChange() {};
+
+  _onPriceChange() {};
+
+  _onOfferChange() {};
+
   bind() {
     this._element.addEventListener(`submit`, this._onSubmit);
     this._element.addEventListener(`reset`, this._onReset);

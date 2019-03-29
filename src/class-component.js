@@ -19,6 +19,8 @@ export class Component {
 
   bind() {};
 
+  update() {};
+
   render(container) {
     this._element = this.createElement(this.template);
     container.appendChild(this._element);
