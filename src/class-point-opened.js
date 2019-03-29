@@ -1,4 +1,4 @@
-import {Component} from './class-component.js';
+import { Component } from './class-component.js';
 
 export class PointOpened extends Component {
   constructor(data) {
@@ -141,8 +141,24 @@ export class PointOpened extends Component {
     this._onReset = someFunction;
   }
 
-  _processFrom() {
+  _processFrom(formData) {
+    const point = {
+      town: ``,
+      icon: ``,
+      title: ``,
+      time: {},
+      price: ``,
+      offer: [],
+    };
 
+    const dataMapper = new PointOpened.createMapper(point);
+
+    for (const pair of formData.entries()) {
+      const [prop , value] = pair;
+      dataMapper[prop] && dataMapper[prop](value);
+    }
+
+    return point;
   };
 
   _onSubmitButtonCLick(evt) {
@@ -167,8 +183,7 @@ export class PointOpened extends Component {
 
   _onChangePrice() {};
 
-  _onChangeOffer() {
-  };
+  _onChangeOffer() {};
 
   update(data) {
     this._icon = data.icon;
@@ -177,6 +192,16 @@ export class PointOpened extends Component {
     this._price = data.price;
     this._offer = data.offer;
   }
+
+  static createMapper(target) {
+    return {
+      offer: (value) => target.offer.push(),
+      // travel-way: (value) => target.icon = value,
+      destination: (value) => target.town = value,
+      time: (value) => target.time = value,
+      price: (value) => target.prive = value,
+    }
+  };
 
   bind() {
     this._element.addEventListener(`submit`, this._onSubmit);
