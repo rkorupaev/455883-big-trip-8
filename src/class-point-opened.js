@@ -10,6 +10,12 @@ export class PointOpened extends Component {
     this._time = data.time;
     this._price = data.price;
     this._offer = data.offer;
+
+    // this._onChangeIcon = this._onChangeIcon.bind(this);
+    // this._onChangeTown = this._onChangeTown.bind(this);
+    // this._onChangeData = this._onChangeData.bind(this);
+    // this._onChangePrice = this._onChangePrice.bind(this);
+    // this._onChangeOffer = this._onChangeOffer.bind(this);
   }
 
   get template() {
@@ -135,21 +141,42 @@ export class PointOpened extends Component {
     this._onReset = someFunction;
   }
 
-  _onSubmit() {
+  _processFrom() {
+
+  };
+
+  _onSubmitButtonCLick(evt) {
+    evt.preventDefault();
+
+    const formData = new FormData(this._element.querySelector(`.point`));
+    const newData = this._processFrom(formData);
+    typeof this._onSubmit === `function` && this._onSubmit(newData);
+
+    this.update(newData);
+  };
+
+  _onSubmit() {};
+
+  _onReset() {};
+
+  _onChangeIcon() {};
+
+  _onChangeTown() {};
+
+  _onChangeDate() {};
+
+  _onChangePrice() {};
+
+  _onChangeOffer() {
+  };
+
+  update(data) {
+    this._icon = data.icon;
+    this._town = data.town;
+    this._time = data.time;
+    this._price = data.price;
+    this._offer = data.offer;
   }
-
-  _onReset() {
-  }
-
-  _onTypeChange() {};
-
-  _onTownChange() {};
-
-  _onDateChange() {};
-
-  _onPriceChange() {};
-
-  _onOfferChange() {};
 
   bind() {
     this._element.addEventListener(`submit`, this._onSubmit);
