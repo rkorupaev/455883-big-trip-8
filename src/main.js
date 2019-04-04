@@ -21,15 +21,20 @@ firstItem.onClick = (evt) => {
 
 firstItem.render(dayItems);
 
-openedItem.onSubmit = (newObject) =>{
+openedItem.onSubmit = (evt, newObject) =>{
   point.title = newObject.title;
   point.town = newObject.town;
   point.price = newObject.price;
   point.time.timetable = newObject.time;
 
+  // console.log(newObject);
+  // console.log(point);
+
   firstItem.update(point);
+
+  evt.target.parentNode.remove();
   firstItem.render(dayItems);
-  dayItems.replaceChild(firstItem, openedItem);
+  // console.log(firstItem);
 };
 
 openedItem.onReset = (evt) =>{

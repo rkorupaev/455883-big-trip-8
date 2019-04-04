@@ -11,11 +11,8 @@ export class PointOpened extends Component {
     this._price = data.price;
     this._offer = data.offer;
 
-    // this._onChangeIcon = this._onChangeIcon.bind(this);
-    // this._onChangeTown = this._onChangeTown.bind(this);
-    // this._onChangeData = this._onChangeData.bind(this);
-    // this._onChangePrice = this._onChangePrice.bind(this);
-    // this._onChangeOffer = this._onChangeOffer.bind(this);
+    this._onSubmitButtonCLick = this._onSubmitButtonCLick.bind(this);
+    this._onSubmit = null;
   }
 
   get template() {
@@ -133,6 +130,16 @@ export class PointOpened extends Component {
     </article>`.trim();
   }
 
+  static createMapper(target) {
+    return {
+      // offer: (value) => target.offer.push(),
+      // travel-way: (value) => target.icon = value,
+      destination: (value) => target.town = value,
+      time: (value) => target.time = value,
+      price: (value) => target.prive = value,
+    }
+  };
+
   set onSubmit(someFunction) {
     this._onSubmit = someFunction;
   }
@@ -141,7 +148,7 @@ export class PointOpened extends Component {
     this._onReset = someFunction;
   }
 
-  _processFrom(formData) {
+  _processForm(formData) {
     const point = {
       town: ``,
       icon: ``,
@@ -151,22 +158,25 @@ export class PointOpened extends Component {
       offer: [],
     };
 
-    const dataMapper = new PointOpened.createMapper(point);
+    const dataMapper = PointOpened.createMapper(point);
 
     for (const pair of formData.entries()) {
+
       const [prop , value] = pair;
+
       dataMapper[prop] && dataMapper[prop](value);
     }
-
+    console.log(point);
     return point;
   };
 
   _onSubmitButtonCLick(evt) {
     evt.preventDefault();
-
+    console.log(this._element.querySelector(`.point`));
     const formData = new FormData(this._element.querySelector(`.point`));
-    const newData = this._processFrom(formData);
-    typeof this._onSubmit === `function` && this._onSubmit(newData);
+    const newData = this._processForm(formData);
+    // console.log(newData);
+    typeof this._onSubmit === `function` && this._onSubmit(evt, newData);
 
     this.update(newData);
   };
@@ -174,14 +184,6 @@ export class PointOpened extends Component {
   _onSubmit() {};
 
   _onReset() {};
-
-  _onChangeIcon() {};
-
-  _onChangeTown() {};
-
-  _onChangeDate() {};
-
-  _onChangePrice() {};
 
   _onChangeOffer() {};
 
@@ -193,18 +195,8 @@ export class PointOpened extends Component {
     this._offer = data.offer;
   }
 
-  static createMapper(target) {
-    return {
-      offer: (value) => target.offer.push(),
-      // travel-way: (value) => target.icon = value,
-      destination: (value) => target.town = value,
-      time: (value) => target.time = value,
-      price: (value) => target.prive = value,
-    }
-  };
-
   bind() {
-    this._element.addEventListener(`submit`, this._onSubmit);
+    this._element.addEventListener(`submit`, this._onSubmitButtonCLick);
     this._element.addEventListener(`reset`, this._onReset);
   }
 };
