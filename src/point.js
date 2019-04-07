@@ -1,3 +1,5 @@
+import moment from './../node_modules/moment';
+
 const makeArrayOfTitles = () => {
   let finalTitle = [];
   const initialString = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus.`;
@@ -29,14 +31,24 @@ getOfferList().forEach((element) => {
   offersString = offersString + `<li><button class="trip-point__offer">${element}</button></li>`;
 });
 
+var startTime = new moment();
+startTime.hour(4).minute(40);
+
+var endTime = new moment();
+startTime.hour(8).minute(0);
+
+const getDuration = () => {
+
+};
+
 export const point = {
   town: `Moscow`,
   photo: `http://picsum.photos/300/150?r=${Math.random()}`,
   icon: `taxi`,
   title: makeArrayOfTitles(),
   time: {
-    timetable: `10:00 - 11:00`,
-    duration: `1H30`,
+    timetable: startTime + endTime,
+    duration: moment().format('MMMM Do YYYY, h:mm:ss a'),
   },
   price: `20`,
   offer: offersString,

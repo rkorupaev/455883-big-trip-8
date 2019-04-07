@@ -3,6 +3,7 @@ import {routePoints} from './route.js';
 import {point} from './point.js';
 import {Point} from './class-point.js';
 import {PointOpened} from './class-point-opened.js';
+import moment from './../node_modules/moment';
 
 const filterContainer = document.querySelector(`.trip-filter`);
 const filters = [`everything`, `future`, `past`];

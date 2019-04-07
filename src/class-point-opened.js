@@ -1,4 +1,5 @@
 import { Component } from './class-component.js';
+import flatpickr from './../node_modules/flatpickr';
 
 export class PointOpened extends Component {
   constructor(data) {
@@ -172,7 +173,7 @@ export class PointOpened extends Component {
 
   _onSubmitButtonCLick(evt) {
     evt.preventDefault();
-    console.log(this._element.querySelector(`.point`));
+
     const formData = new FormData(this._element.querySelector(`.point`));
     const newData = this._processForm(formData);
     // console.log(newData);
@@ -198,5 +199,7 @@ export class PointOpened extends Component {
   bind() {
     this._element.addEventListener(`submit`, this._onSubmitButtonCLick);
     this._element.addEventListener(`reset`, this._onReset);
+
+    flatpickr(".point__input", {enableTime: true, noCalendar: true, altInput: true, altFormat: `H:i`, dateFormat: `H:i`});
   }
 };
